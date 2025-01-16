@@ -1,0 +1,55 @@
+main {
+    display: flex;
+    flex-direction: column;
+    flex: 12;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+
+    position: relative;
+    z-index: 2;
+
+   
+}
+
+#title {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    line-height: 1;
+    padding-left: 3%;
+    padding-top: 3%;
+}
+
+#title h1 {
+    font-family: Poppins;
+    font-size: 3em;
+    color: #E51E1B;
+}
+
+#title p {
+    color: black;
+    font-weight: 800;
+    font-family: Poppins;
+    font-size: 1.2em;
+}
+
+#bemvindo {
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+    
+    
+    
+}
+
+#cupons {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+}
+
+#compra {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+}

@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    align-items: start;
+    
+    flex: 1;
+    background-color: black;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+#navbar {
+    width: 100%;
+    height: 60%;
+}
+
+.one {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content:center ;
+    align-items: end;
+}
+
+
+
+.home {
+    color: #E51E1B;
+    background-color: white;
+    padding-inline: 15%;
+    padding-block: 15%;
+    padding-bottom: 16%;
+    font-size: 1.5em;
+    border-radius: 50%;
+}
