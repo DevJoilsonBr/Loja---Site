@@ -2,32 +2,22 @@ import { getModelForClass, prop } from "@typegoose/typegoose";
 
 class ProductClass {
     @prop({required: true})
-    name: string;
+    name!: string;
 
     @prop({required: true})
-    description: string;
+    description!: string;
 
     @prop({required: true})
-    price: number;
+    price!: number;
 
     @prop({required: true})
-    category: string;
+    category!: string;
 
     @prop({required: true})
-    quantity: number;
+    quantity!: number;
 
     @prop()
-    image: string;
-
-    constructor(name: string, description: string, price: number, 
-        category: string, quantity: number, image: string) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.category = category;
-        this.quantity = quantity;
-        this.image = image;
-    }
+    image?: string;
 }
 
 export const Product = getModelForClass(ProductClass);

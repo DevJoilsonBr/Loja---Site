@@ -1,5 +1,5 @@
 {
-  "name": "cafebr",
+  "name": "app-store",
   "version": "1.0.0",
   "main": "dist/server.js",
   "scripts": {
