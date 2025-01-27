@@ -76,7 +76,7 @@ export async function login(req: Request, res: Response): Promise<any> {
 
         generateAndSetCookie(user.id, res)
 
-        return res.status(201).json({success:true, message: "Login successfully", user: email})
+        return res.status(200).json({success:true, message: "Login successfully", user: email})
     } catch (error) {
         res.status(500).json({success: false, message: "Internal server error"})
         console.log("Error in login controller", error)
@@ -95,7 +95,7 @@ export async function logout(req: Request, res: Response): Promise<any> {
 
 export async function getUser(req: Request, res: Response): Promise<any> {
     try {
-        res.status(201).json({success: true, user: req.user})
+        res.status(200).json({success: true, user: req.user})
     } catch (error) {
         res.status(500).json({success: false, message: "Internal server error"})
         console.log("Error in getUser controller", error)

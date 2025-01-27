@@ -1,9 +1,6 @@
 import { getModelForClass, prop } from "@typegoose/typegoose";
-
-export enum UserRole {
-    Admin = 'admin',
-    Customer = 'customer'
-}
+import { ProductClass } from "./product.model";
+import { IProduct } from "../types/product.interface";
 
 class UserClass {
     @prop({required: true, unique: true})
@@ -15,11 +12,14 @@ class UserClass {
     @prop({required: true, maxlength: 100})
     password!: string;
 
-    @prop({default: UserRole.Customer, enum: UserRole})
-    role!: UserRole;
+    @prop({default: false})
+    isAdmin!: boolean;
 
     @prop({default: true})
     isActive!: boolean;
+
+    @prop({ref: () => ProductClass, default: []})
+    cartItems!: IProduct[]
 }
 
 export const User = getModelForClass(UserClass);

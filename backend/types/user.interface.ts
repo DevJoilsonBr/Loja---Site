@@ -1,10 +1,11 @@
-import { UserRole } from "../models/user.model";
+import { IProduct } from "./product.interface";
 
 export interface IUser {
-    id?: string;
+    userId?: string;
     username: string;
     email: string;
     password: string;
-    role: UserRole;
+    isAdmin: boolean;
     isActive: boolean;
+    cartItems: IProduct[]
 }

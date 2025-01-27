@@ -2,12 +2,13 @@ import { NextFunction, Request, Response } from "express";
 import { User } from './../models/user.model';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 import { ENV_VARS } from './../config/EnvVars';
+import { IUser } from "../types/user.interface";
 
 interface Payload extends JwtPayload {
     userId: string;
 }
 
-export const protectRoute = async (req: Request, res: Response, next: NextFunction) => {
+export const authenticatedRoute = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token = req.cookies["jwt-store"]
 
@@ -33,5 +34,6 @@ export const protectRoute = async (req: Request, res: Response, next: NextFuncti
     } catch (error: unknown) {
         const errorMessage = error instanceof Error ? error.message : "Unknown error occurred"
         console.log("Error in protectRoute: ", errorMessage)
+        res.status(401).json({ success: false, message: "Not authenticated" })
     }
 }

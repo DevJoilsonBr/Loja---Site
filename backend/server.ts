@@ -1,9 +1,12 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import authRoute from './routes/auth.route'
 import { connectDb } from './db/db';
 import { ENV_VARS } from './config/EnvVars';
+import authRoute from './routes/auth.route'
+import productRoute from './routes/product.route'
+import categoryRoute from './routes/category.route'
+import { authenticatedRoute } from './middleware/authenticatedRoute';
 
 const app = express();
 
@@ -14,8 +17,10 @@ dotenv.config();
 
 //Main route
 app.use("/api/v1/auth", authRoute)
+app.use("/api/v1/product", authenticatedRoute, productRoute)
+app.use("/api/v1/category", categoryRoute) //TODO: add protected route for admins
 
-const PORT = ENV_VARS.PORT
+const PORT = ENV_VARS.PORT || 3000
 
 app.listen(PORT, async (): Promise<void> => {
     try {
